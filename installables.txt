@@ -1,0 +1,12 @@
+Python libraries to be installed:
+(to install libraries, type 'pip install <name of library>' in terminal
+Tensorflow
+Keras 
+Matplotlib
+numpy
+flask
+graphviz
+pydot
+pillow
+pathlib
+Subsequently, go to graphviz.com and install graphviz 2.38

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<!--
+	Typify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Train</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+			<section id="one" class="wrapper special">
+				<div class="inner">
+					<header class="major">
+						<h2><b>CNN Details</b></h2>
+					</header>
+					<div style='line-height: 12px; width: 18px;font-size: 8pt;font-family: tahoma;
+					     margin-top: 1px;
+					     margin-right: 2px;
+					     position:absolute;
+					     top:0;
+					     left:0;
+					 '>
+					 <form method = 'GET' action="/">
+						<input class="button special" type="submit" value="Home">
+					</form>
+					</div>
+					<form id="CNN" method="post" autocomplete="off" action = "/train">
+						<div>
+						<div style="display: inline-block">
+							<div style="float:left;display:inline;margin:-10px;width:500px;">
+							<h1> Enter Training directory here </h1>
+							<input class="dir" name = 'train_dir' type="text" value = "{{train_dir}}" required>
+						  </div>
+						  <div style="float:right;display:inline;margin: -10px;width:500px">
+							<h1> Enter validation directory here </h1>
+							<input class="dir" name ='val_dir' type="text" value = "{{val_dir}}" required>
+						  </div>
+							<div style="clear: both;"></div>
+						</div>
+						<br>
+						<br>
+
+
+
+
+						<div style="display: inline-block">
+							<div style="float:left;display:inline;margin:30px;width:200px;">
+							<h1>Enter number of epochs here </h1>
+				      <input id="epochs" type="text" name="epochs" value = "{{epochs}}"required>
+						 	</div>
+							<div style="float:right;display:inline;margin: 30px;width:200px">
+							<h1> Enter batch size here</h1>
+							<input id="batch_size" type="text" name="batch_size" value = "{{batch_size}}"style="display:inline"required>
+						</div>
+						 <div style="clear: both;"></div>
+			    	</div>
+						<br>
+						<br>
+						<!-- <h2><b>Preprocessing layer</b></h2>
+						<h1>Select type of function and click add<h1
+
+					<div style="display: inline-block;">
+						<div style="float:left;display:inline;margin:5px;">
+							<select id="preprocess" name='preprocess1'style = 'width:300px' required>
+								<option>Click to select</option>
+								<option value = "width_shift_range">Width shift</option>
+								<option value = "height_shift_range">Height shift</option>
+								<option value = "rotation_range">Rotation</option>
+								<option value = "horizontal_flip">Horizontal flip</option>
+								<option value = "vertical_flip">Vertical flip</option>
+								<option value = "Zoom">Zoom</option>
+							</select>
+						</div>
+						<div style="float:left;display:inline;margin:5px;">
+						<input type='text' name'range1' placeholder="range" style = 'width:100px;'>
+					</div>
+						<div style="clear: both;"></div>
+					</div>
+					<div id='prelayers'>
+					</div>
+					<input class="button special" id="add" value = "Add" style ="width:100px">
+							<br>
+							<br> -->
+
+
+						<h1> Please choose the optimizer you would like to use<h1>
+							<select name="optimizer" value = "{{optimizer}}" required>
+							<option value = "Please select one">Click to select</option>
+						  <option value="RMSPROP">RMSPROP</option>
+						  <option value="ADAMAX">ADAMAX</option>
+						  <option value="ADAM">ADAM</option>
+						  <option value="SGD">SGD</option>
+							<option value="NADAM">NADAM</option>
+							<option value="ADADELTA">ADADELTA</option>
+						</select>
+						<br>
+						<br>
+						<div>
+						<h2><b> Convolution layer</b><h2>
+						</div>
+						<div>
+						<h1><b>Select an activation function for the convolution phase</b></h1>
+						<select name="conv_activation">
+						<option value = "Please select one">Click to select </option>
+						<option value="relu">relu</option>
+						<option value="sigmoid">sigmoid</option>
+						<option value="tanh">tanh</option>
+						<option value="softplus">softplus</option>
+						<option value="hard_sigmoid">hard_sigmoid</option>
+						</select>
+						</div>
+						<h1>No. of conv layers</h1>
+						<input id="max_conv" type="Integer" name="conv_layers" style='width:100px'>
+						<br>
+						<input class="button special" id="convInput" value = "Input" style='width:105px '>
+						<input class="button special" id="resetConv" value = "reset" style='width:105px '>
+						<br>
+						<br>
+
+						<div id = "convLayers">
+						<!-- <div style='display: inline-block'> -->
+
+						<!-- <div style='clear: both;'></div> -->
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<div style="display: inline-block">
+							<div style="float:left;display:inline;margin:-60px;width:600px;">
+							<div>
+							<h2><b> Pooling layer</b><h2>
+							</div>
+							<h1>No. of Pooling layers</h1>
+							<input id="max_pool" type="Integer" name="pool_layers" style='width:100px'required>
+							<br>
+							<input class="button special" id="poolInput" value = "Input" style='width:105px '>
+							<input class="button special" id="resetPool" value = "reset" style='width:105px '>
+							<br>
+							<div id='poolLayers'>
+							</div>
+						  </div>
+
+						  <div style="float:right;display:inline;margin: -60px;width:600px">
+							<div>
+							<h2><b> Dense layer</b><h2>
+							</div>
+
+							<h1>No. of Dense layers</h1>
+							<input id="max_dense" type="Integer" name="dense_layers" style='width:100px'required>
+
+							<br>
+							<input class="button special" id="denseInput" value = "Input" style='width:105px'>
+							<input class="button special" id="resetDense" value = "reset" style='width:105px'>
+							<br>
+							<div id='denseLayers'>
+							</div>
+						  </div>
+						<div style="clear: both;"></div>
+					  </div>
+						<br>
+						<br>
+
+						<br>
+						<br>
+						<h2>Classification layer</h2>
+						<h1><b>Select an activation function for the Classification phase</b></h1>
+						<select name="class_activation">
+						<option value = "Please select one">Click to select </option>
+						<option value="relu">relu</option>
+						<option value="sigmoid">sigmoid</option>
+						<option value="tanh">tanh</option>
+						<option value="softplus">softplus</option>
+						<option value="hard_sigmoid">hard_sigmoid</option>
+						<option value='softmax'>softmax</option>
+					</select>
+					<br>
+					<br>
+
+						<h1> Enter name to save model </h1>
+						<input type="text" name="model_name" value="{{model_name}}" required>
+
+			      <!-- <input id="time" type="time" name="time" value="{{time}}">
+
+			        <input id="location" type="text" name="location" value="{{location}}" > -->
+						</div>
+						<br>
+			  <input class="button special" type="submit" value="Go!">
+			</form>
+				</div>
+				<h1>{{train}}</h1>
+				<h1>Validation loss:{{loss}}</h1>
+				<h1>Validation Accuracy:{{acc}}</h1>
+				<a id = 'graph' href={{graph}} download>{{graph_text}}</a>
+				<a id = 'archi' href={{archi}} download>{{archi_text}}</a>
+				<!-- <a id='test' href='static/image/+0.9VMissing1STop.png' download>Start archi_text</a> -->
+				<!-- <script>
+				document.getElementById('archi').dispatchEvent(new MouseEvent("click"));
+				document.getElementById('graph').dispatchEvent(new MouseEvent("click"));
+				</script> -->
+
+			</section>
+
+			<!-- <footer id="footer">
+				<div class="copyright">
+					&copy; Untitled. Design: <a href="http://templated.co/">TEMPLATED</a>.
+				</div>
+			</footer> -->
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script src="{{url_for('static', filename='script.js')}}"></script>
+
+	</body>
+</html>

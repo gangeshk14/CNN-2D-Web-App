@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!--
+	Typify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+	<head>
+		<title>Simple CNN</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div style='line-height: 12px; width: 18px;font-size: 8pt;font-family: tahoma;
+				     margin-top: 1px;
+				     margin-right: 2px;
+				     position:absolute;
+				     top:0;
+				     left:0;
+				 '>
+				 <form method = 'GET' action="/">
+					<input class="button special" type="submit" value="Home">
+				</form>
+				</div>
+				<div>
+				<h2><strong>Simple CNN</strong> is a way to train your own Convolutional Neural Network</h2>
+			</div>
+			<div style="display: inline-block">
+				<div style="float:left;display:inline;margin:0px;width:200px;">
+					<form method = 'GET' action="/train">
+	         <input class="button special" type="submit" value="Train">
+	      </form>
+			</div>
+				<div style="float:right;display:inline;margin: 0px;width:200px">
+					<form method = 'GET' action="/test">
+	         <input class="button special" type="submit" value="Test">
+	      </form>
+			</div>
+			<div style="float:right;display:inline;margin: 0px;width:200px">
+				<form method = 'GET' action="/testsingle">
+				 <input class="button special" type="submit" value="Test single">
+			</form>
+		</div>
+			 <div style="clear: both;"></div>
+			</div>
+
+				<!-- <ul class="actions">
+					<li><a href="#" class="button special">Get started</a></li>
+				</ul> -->
+			</section>
+
+			<!-- <footer id="footer">
+				<div class="copyright">
+					&copy; Untitled. Design: <a href="http://templated.co/">TEMPLATED</a>.
+				</div>
+			</footer> -->
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script src="{{url_for('static', filename='script.js')}}"></script>
+
+	</body>
+</html>
